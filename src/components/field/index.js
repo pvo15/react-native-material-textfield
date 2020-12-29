@@ -63,6 +63,7 @@ export default class TextField extends PureComponent {
     disabledLineType: 'dotted',
 
     disabled: false,
+    helperStyle: {}
   };
 
   static propTypes = {
@@ -564,6 +565,7 @@ export default class TextField extends PureComponent {
       errorColor,
       titleTextStyle: style,
       characterRestriction: limit,
+      helperStyle
     } = this.props;
 
     let { length: count } = this.value();
@@ -593,6 +595,7 @@ export default class TextField extends PureComponent {
       error,
       disabled,
       focusAnimation,
+      helperStyle
     };
 
     return (
