@@ -12,6 +12,7 @@ export default class Helper extends PureComponent {
     disabled: PropTypes.bool,
 
     style: PropTypes.object,
+    helperStyle: PropTypes.object,
 
     baseColor: PropTypes.string,
     errorColor: PropTypes.string,
@@ -81,6 +82,7 @@ export default class Helper extends PureComponent {
       disabled,
       baseColor,
       errorColor,
+      helperStyle
     } = this.props;
 
     let text = errored?
@@ -100,7 +102,7 @@ export default class Helper extends PureComponent {
     };
 
     return (
-      <Animated.Text style={[styles.text, style, textStyle]}>
+      <Animated.Text style={[styles.text, style, textStyle, helperStyle]}>
         {text}
       </Animated.Text>
     );
