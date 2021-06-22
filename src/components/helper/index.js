@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { Animated, Text } from 'react-native';
+import { Animated, Tex, Platformt } from 'react-native';
 
 import styles from './styles';
 
@@ -41,6 +41,17 @@ export default class Helper extends PureComponent {
 
     this.listener = focusAnimation
       .addListener(this.onAnimation.bind(this));
+  }
+
+  componentWillReceiveProps(nextProps, nextContext) {
+    if (Platform.OS === 'android') {
+      if (nextProps.error && nextProps.error !== this.props.error) {
+        this.onAnimation({value: -1})
+      } else if(!nextProps.error) {
+        this.onAnimation({value: 1})
+
+      }
+    }
   }
 
   componentWillUnmount() {
